@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Month Dots</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+
+  .widget {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    padding: 36px 40px;
+    width: 280px;
+    backdrop-filter: blur(20px);
+  }
+
+  .month-label {
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 5px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+
+  .dots-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .dot.past {
+    background: rgba(255,255,255,0.85);
+  }
+
+  .dot.today {
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(255,255,255,1);
+  }
+
+  .dot.future {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-num {
+    font-size: 22px;
+    font-weight: 200;
+    color: rgba(255,255,255,0.9);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.3);
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+
+  .divider {
+    color: rgba(255,255,255,0.15);
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="widget">
+  <div class="month-label" id="month-name"></div>
+  <div class="dots-grid" id="dots"></div>
+  <div class="stats">
+    <div class="stat-item">
+      <span class="stat-num" id="passed">0</span>
+      <span class="stat-label">passed</span>
+    </div>
+    <div class="divider">·</div>
+    <div class="stat-item">
+      <span class="stat-num" id="remain">0</span>
+      <span class="stat-label">remain</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  const monthNames = ["January","February","March","April","May","June",
+                      "July","August","September","October","November","December"];
+
+  const now = new Date();
+  const month = now.getMonth();
+  const today = now.getDate();
+  const daysInMonth = new Date(now.getFullYear(), month + 1, 0).getDate();
+
+  document.getElementById('month-name').textContent = monthNames[month];
+  document.getElementById('passed').textContent = today;
+  document.getElementById('remain').textContent = daysInMonth - today;
+
+  const grid = document.getElementById('dots');
+  for (let d = 1; d <= daysInMonth; d++) {
+    const dot = document.createElement('span');
+    dot.className = 'dot ' + (d < today ? 'past' : d === today ? 'today' : 'future');
+    grid.appendChild(dot);
+  }
+</script>
+</body>
+</html>
