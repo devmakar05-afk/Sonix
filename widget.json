@@ -1,0 +1,6 @@
+{
+  "name": "Month Dots",
+  "description": "A minimal widget that shows the days of the current month as dots. Past days are filled, today glows, future days are empty.",
+  "author": "devmakar05-afk",
+  "version": "1.0.0"
+}
