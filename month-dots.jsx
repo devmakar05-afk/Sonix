@@ -10,29 +10,29 @@ export const className = css`
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 24px;
-  padding: 36px 40px;
-  width: 280px;
+  padding: 18px 20px;
+  width: 140px;
   font-family: 'Helvetica Neue', sans-serif;
 
   .month-label {
-    font-size: 11px;
+    font-size: 6px;
     font-weight: 300;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
     color: rgba(255,255,255,0.4);
-    margin-bottom: 24px;
+    margin-bottom: 12px;
     text-transform: uppercase;
   }
 
   .dots-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 24px;
+    gap: 4px;
+    margin-bottom: 12px;
   }
 
   .dot {
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
   }
 
@@ -50,21 +50,21 @@ export const className = css`
   .stat-item { display: flex; flex-direction: column; align-items: center; }
 
   .stat-num {
-    font-size: 22px;
+    font-size: 11px;
     font-weight: 200;
     color: rgba(255,255,255,0.9);
     line-height: 1;
   }
 
   .stat-label {
-    font-size: 9px;
-    letter-spacing: 2px;
+    font-size: 5px;
+    letter-spacing: 1px;
     color: rgba(255,255,255,0.3);
-    margin-top: 4px;
+    margin-top: 2px;
     text-transform: uppercase;
   }
 
-  .divider { color: rgba(255,255,255,0.15); font-size: 20px; margin-bottom: 12px; }
+  .divider { color: rgba(255,255,255,0.15); font-size: 10px; margin-bottom: 6px; }
 `
 
 const monthNames = ["January","February","March","April","May","June",
